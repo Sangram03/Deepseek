@@ -8,12 +8,13 @@ const PromptBox = ({ setIsLoading, isLoading }) => {
   const [prompt, setPrompt] = useState('');
   const {user,chats , setchats , selectedChat,setSelectedChat} = useAppContext();
 
-  const handleKeyDown = ()=> {
-    if(e.key === "Enter" && !e.shiftKey){
-      e.preventDefalt();
-      sendPrompt(e);
-    }
+ const handleKeyDown = (e) => {
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault(); // ✅ fixed typo: preventDefalt → preventDefault
+    sendPrompt(e);
   }
+};
+
 
   const sendPrompt = async()=>{
     const promptCopy = prompt;
